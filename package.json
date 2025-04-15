@@ -1,5 +1,5 @@
 {
-  "name": "git-dir",
+  "name": "@zgo/git-dir",
   "version": "2.0.0",
   "description": "Specify the parent folder and execute the git command cyclically for subfolder",
   "main": "index.js",
@@ -15,7 +15,7 @@
   "author": "zigo",
   "license": "ISC",
   "publishConfig": {
-    "registry": "http://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   },
   "files": [
     "main"
