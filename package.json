@@ -1,8 +1,7 @@
 {
   "name": "@zgo/git-dir",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "description": "Specify the parent folder and execute the git command cyclically for subfolder",
-  "main": "index.js",
   "repository": "https://github.com/zgoby/git-dir.git",
   "bin": {
     "git-dir": "main"

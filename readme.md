@@ -4,7 +4,7 @@ execute git command for all directories of the parent directory!
 ### install
 First, you have [GIT](https://git-scm.com/) installed on your computer!!!
 ```
-npm install -g git-dir
+npm install -g @zgo/git-dir
 ```
 ### run
 ```

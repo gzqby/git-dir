@@ -30,7 +30,11 @@ func GitLoop(resolveFolderUrl, _command string) error {
 			if err != nil {
 				return err
 			}
-			fmt.Print(output)
+			outputText := output
+			if output == "" {
+				outputText = "no stdout and completed!\n"
+			}
+			fmt.Print("project ", file.Name(), " stdout: ", outputText)
 		} else {
 			fmt.Println("Project", file.Name(), "is not a git project")
 		}
@@ -45,7 +49,7 @@ func gitCommand(url, params string) (string, error) {
 	cmd := exec.Command("sh", "-c", fmt.Sprintf("cd %s && git %s", url, params))
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("error happened: git %s", params)
 	}
 	return string(output), nil
 }
