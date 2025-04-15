@@ -1,19 +1,14 @@
-# gitloop
-loop the git commands for directories!
+# git-dir
+execute git command for all directories of the parent directory!
 ## usage
 ### install
 First, you have [GIT](https://git-scm.com/) installed on your computer!!!
 ```
-npm install -g loop-git
-// or
-yarn global add loop-git
+npm install -g git-dir
 ```
 ### run
 ```
-gitloop [git commands]
+git-dir [git commands]
 // example:
-gitloop -o ../oneDir config user.name zigo
+git-dir -d ./ config user.name
 ```
-## todo
-1. use motion friendly
-<!-- 2. --help -->
