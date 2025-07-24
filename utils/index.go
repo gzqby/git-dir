@@ -19,29 +19,35 @@ func GitLoop(resolveFolderUrl, _command string) error {
 	}
 
 	for _, file := range fileOrFolder {
+		// 跳过文件，只处理目录
+		if !file.IsDir() {
+			continue
+		}
+
 		url := filepath.Join(resolveFolderUrl, file.Name())
 		isGit, err := isDotGit(url)
 		if err != nil {
-			fmt.Println("project ", file.Name(), " stdout: ", err)
+			fmt.Printf("Error checking %s: %v\n", file.Name(), err)
 			continue
 		}
 
 		if isGit {
+			fmt.Printf("Processing git repository: %s\n", file.Name())
 			output, err := gitCommand(url, _command)
 			if err != nil {
-				return err
+				fmt.Printf("Error in %s: %v\n", file.Name(), err)
+				continue
 			}
 			outputText := output
 			if output == "" {
-				outputText = "no stdout and completed! \\n"
+				outputText = "no stdout and completed!\n"
 			}
-			fmt.Print("project ", file.Name(), " stdout: ", outputText)
+			fmt.Printf("Repository %s output:\n%s\n", file.Name(), outputText)
 		} else {
-			fmt.Println("Project", file.Name(), "is not a git project")
+			fmt.Printf("Directory %s is not a git repository\n", file.Name())
 		}
 	}
 
-	// cdOrigin(resolveFolderUrl)
 	return nil
 }
 

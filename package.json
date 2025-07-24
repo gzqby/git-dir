@@ -1,27 +1,47 @@
 {
   "name": "@zgo/git-dir",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "Specify the parent folder and execute the git command cyclically for subfolder",
+  "main": "bin.js",
   "repository": "https://github.com/zgoby/git-dir.git",
   "bin": {
-    "git-dir": "dist/git-dir"
+    "git-dir": "./bin.js"
   },
   "scripts": {
-    "build": "GOOS=linux GOARCH=amd64 go build -o dist/git-dir-linux main.go && GOOS=windows GOARCH=amd64 go build -o dist/git-dir.exe main.go && GOOS=darwin GOARCH=amd64 go build -o dist/git-dir-darwin main.go"
+    "build": "./build.sh",
+    "postinstall": "node install.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "dir",
     "git",
+    "cli",
+    "command-line",
+    "git-tools",
     "execute git command for all directories of the parent directory"
   ],
   "author": "zigo",
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "files": [
+    "bin.js",
+    "install.js",
     "dist/",
-    "readme.md",
-    "package.json"
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
   ]
 }
