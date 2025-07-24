@@ -4,7 +4,11 @@
   "description": "Specify the parent folder and execute the git command cyclically for subfolder",
   "repository": "https://github.com/zgoby/git-dir.git",
   "bin": {
-    "git-dir": "main"
+    "git-dir": "dist/git-dir"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && go build -o dist/git-dir main.go",
+    "build-all": "GOOS=linux GOARCH=amd64 go build -o dist/git-dir-linux main.go && GOOS=windows GOARCH=amd64 go build -o dist/git-dir.exe main.go && GOOS=darwin GOARCH=amd64 go build -o dist/git-dir-darwin main.go"
   },
   "keywords": [
     "dir",
@@ -17,6 +21,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": [
-    "main"
+    "dist/",
+    "readme.md",
+    "package.json"
   ]
 }

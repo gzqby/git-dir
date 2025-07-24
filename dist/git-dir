@@ -1,0 +1,19 @@
+#!/bin/sh
+SCRIPT_DIR=$(dirname "$0")
+BINARY_NAME="git-dir"
+
+# Determine OS and architecture
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH="amd64"
+
+# Set binary path based on OS
+if [ "$OS" = "darwin" ]; then
+    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-darwin"
+elif [ "$OS" = "linux" ]; then
+    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-linux"
+else
+    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-windows.exe"
+fi
+
+# Execute the appropriate binary
+exec "$BINARY_PATH" "$@"
