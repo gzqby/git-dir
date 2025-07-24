@@ -22,7 +22,8 @@ func GitLoop(resolveFolderUrl, _command string) error {
 		url := filepath.Join(resolveFolderUrl, file.Name())
 		isGit, err := isDotGit(url)
 		if err != nil {
-			return err
+			fmt.Println("project ", file.Name(), " stdout: ", err)
+			continue
 		}
 
 		if isGit {
@@ -32,7 +33,7 @@ func GitLoop(resolveFolderUrl, _command string) error {
 			}
 			outputText := output
 			if output == "" {
-				outputText = "no stdout and completed!\n"
+				outputText = "no stdout and completed! \\n"
 			}
 			fmt.Print("project ", file.Name(), " stdout: ", outputText)
 		} else {
