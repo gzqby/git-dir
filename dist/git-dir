@@ -8,11 +8,11 @@ ARCH="amd64"
 
 # Set binary path based on OS
 if [ "$OS" = "darwin" ]; then
-    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-darwin"
+    BINARY_PATH="$SCRIPT_DIR/dist/${BINARY_NAME}-darwin"
 elif [ "$OS" = "linux" ]; then
-    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-linux"
+    BINARY_PATH="$SCRIPT_DIR/dist/${BINARY_NAME}-linux"
 else
-    BINARY_PATH="$SCRIPT_DIR/${BINARY_NAME}-windows.exe"
+    BINARY_PATH="$SCRIPT_DIR/dist/${BINARY_NAME}-windows.exe"
 fi
 
 # Execute the appropriate binary
